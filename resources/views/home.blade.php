@@ -34,24 +34,7 @@ $games = array_slice($games, $offset, 100);
         <title>A1 Free Games</title>
     </head>
     <body>
-  <div class="ui fixed inverted menu">
-    <div class="ui container">
-      <a href="#" class="header item">
-        <img class="logo" src="assets/images/logo.png">
-        A1FreeGames
-      </a>
-      <a href="#" class="item">Home</a>
-      <div class="ui simple dropdown item">
-        Categories <i class="dropdown icon"></i>
-        <div class="menu">
-        	@foreach ($categories as $category)
-          <a class="item" href=" {{ $category['slug'] }} ">  {{ $category['name']}}  🔸. {{ $category['count'] }} </a>
-          <div class="divider"></div>
-          @endforeach
-        </div>
-      </div>
-    </div>
-  </div>
+@include('navbar')
 
   <div class="ui main container">
 
@@ -74,56 +57,6 @@ $games = array_slice($games, $offset, 100);
 
  </div>
 
- <div class="ui inverted vertical footer segment">
-    <div class="ui center aligned container">
-      <div class="ui stackable inverted divided grid">
-        <div class="three wide column">
-        	@php
-        	$halfCategories = round(sizeof($categories) / 2);
-        	@endphp
-          <h4 class="ui inverted header">Games</h4>
-          <div class="ui inverted link list">
-            
-            @foreach ($categories as $category)
-            @if($loop->index >= $halfCategories)
-            <a href="{{ $category['slug'] }}" class="item">{{ $category['name'] }}</a>
-            @endif
-            @endforeach
-            </div>
-        </div>
-        <div class="three wide column">
-          <h4 class="ui inverted header">Games</h4>
-          <div class="ui inverted link list">
-            @foreach ($categories as $category)
-            @if($loop->index >= $halfCategories)
-            <a href="{{ $category['slug'] }}" class="item">{{ $category['name'] }}</a>
-            @endif
-            @endforeach
-          </div>
-        </div>
-        <div class="three wide column">
-          <h4 class="ui inverted header">Games</h4>
-          <div class="ui inverted link list">
-            <a href="#" class="item">Most played</a>
-            <a href="#" class="item">New games</a>
-            <a href="#" class="item">Play history</a>
-            <a href="#" class="item">Top rated</a>
-          </div>
-        </div>
-        <div class="seven wide column">
-          <h4 class="ui inverted header">Bookmark</h4>
-          <p>Add A1FreeGames to your bookmarks by pressing CTL+D / CMD+D or using bookmarks menu.</p>
-        </div>
-      </div>
-      <div class="ui inverted section divider"></div>
-      <img src="assets/images/logo.png" class="ui centered mini image">
-      <div class="ui horizontal inverted small divided link list">
-        <a class="item" href="#">Site Map</a>
-        <a class="item" href="#">Contact Us</a>
-        <a class="item" href="#">Terms and Conditions</a>
-        <a class="item" href="#">Privacy Policy</a>
-      </div>
-    </div>
-  </div>
+@include('footer')
 </body>
 </html>
