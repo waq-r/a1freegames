@@ -2,7 +2,10 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+//use PHPUnit\Framework\TestCase;
+ use Tests\TestCase;
+
+
 
 class ExampleTest extends TestCase
 {
@@ -13,6 +16,7 @@ class ExampleTest extends TestCase
      */
     public function test_example()
     {
-        $this->assertTrue(true);
+    	//cache(['foo'=>'bar']);
+        $this->assertTrue(True);
     }
 }
