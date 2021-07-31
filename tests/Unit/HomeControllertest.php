@@ -4,25 +4,24 @@ namespace Tests\Unit;
 
 //use PHPUnit\Framework\TestCase;
 use Tests\TestCase;
-use App\Http\Controllers\GameController;
+use App\Http\Controllers\HomeController;
 
 class HomeControllertest extends TestCase
 {
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
+    public function test_namedRouteUrl():void
+    {
+    	$this->assertSame('/board', route('category', ['category'=>'board']) );
+    }
     public function test_getGamepixGames():void
     {
-    	$gc = new GameController();
+    	$gc = new HomeController();
     	$this->assertIsArray($gc->getGamepixGames());
         $this->assertTrue(cache()->has('games'));
     }
 
     public function test_createCategoryMenu():void
     {
-    	$gc = new GameController();
+    	$gc = new HomeController();
     	$this->assertIsArray($gc->createCategoryMenu());
     }
 }
