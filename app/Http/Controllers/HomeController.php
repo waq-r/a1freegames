@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+/**
+ * 
+ */
 class HomeController extends Controller
 {
 	public function display(){
@@ -12,7 +15,11 @@ class HomeController extends Controller
 		return view('home', ['categories'=>$this->createCategoryMenu()]);
 
 	}
-
+/**
+ * Create Multi-dimentional array of unique categories from games data array.
+ * Each category array contains it's name, slug and count (number of games).
+ * @return Array
+ */
     public function createCategoryMenu():array 
     {
     	return cache()->remember('categories', now()->addDays(1), function(){
@@ -34,6 +41,11 @@ class HomeController extends Controller
     	});
     	
     }
+
+    /**
+     * Get games data and store array in cache for a day.
+     * @return Array
+     */
     public function getGamepixGames():array
     {
     	$path = 'https://games.gamepix.com/games?sid=23R22';

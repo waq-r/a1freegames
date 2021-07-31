@@ -1,8 +1,3 @@
-<?php
-$games = cache()->get('games');
-$offset = rand(0, (sizeof($games) - 100));
-$games = array_slice($games, $offset, 100);
-?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -41,8 +36,7 @@ $games = array_slice($games, $offset, 100);
 
 <div class="ui six doubling cards">
 	@foreach ($games as $game)
-    <x-card :game="$game"/>
-
+      <x-card :game="$game"/>
   @endforeach
 </div>
 

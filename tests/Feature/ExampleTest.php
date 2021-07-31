@@ -8,13 +8,25 @@ use Tests\TestCase;
 class ExampleTest extends TestCase
 {
     /**
-     * A basic test example.
+     * Homepage HTTP status OK 200.
      *
      * @return void
      */
-    public function test_example()
+    public function test_homeStatus()
     {
         $response = $this->get('/');
+
+        $response->assertStatus(200);
+    }
+
+        /**
+     * Category section HTTP status OK 200.
+     *
+     * @return void
+     */
+    public function test_categoryStatus()
+    {
+        $response = $this->get('/arcade');
 
         $response->assertStatus(200);
     }

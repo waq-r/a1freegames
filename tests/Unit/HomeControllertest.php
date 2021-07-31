@@ -6,19 +6,32 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use App\Http\Controllers\HomeController;
 
-class HomeControllertest extends TestCase
+class HomeControllerTest extends TestCase
 {
-    public function test_namedRouteUrl():void
+	/**
+	 * Description
+	 * @return void
+	 */
+    public function test_namedRouteUrl()
     {
-    	$this->assertSame('/board', route('category', ['category'=>'board']) );
+    	$this->assertSame('http://a1freegames.test', route('home') );
     }
-    public function test_getGamepixGames():void
+    
+    /**
+     * Description
+     * @return void
+     */
+    public function test_getGamepixGames()
     {
     	$gc = new HomeController();
     	$this->assertIsArray($gc->getGamepixGames());
         $this->assertTrue(cache()->has('games'));
     }
 
+    /**
+     * Description
+     * @return void
+     */
     public function test_createCategoryMenu():void
     {
     	$gc = new HomeController();
