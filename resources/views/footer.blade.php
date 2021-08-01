@@ -10,7 +10,7 @@
             
             @foreach ($categories as $category)
             @if($loop->index >= $halfCategories)
-            <a href="{{ $category['slug'] }}" class="item">{{ $category['name'] }}</a>
+            <a href="{{ $category['url'] }}" class="item">{{ $category['name'] }}</a>
             @endif
             @endforeach
             </div>
@@ -20,7 +20,7 @@
           <div class="ui inverted link list">
             @foreach ($categories as $category)
             @if($loop->index >= $halfCategories)
-            <a href="{{ $category['slug'] }}" class="item">{{ $category['name'] }}</a>
+            <a href="{{ $category['url'] }}" class="item">{{ $category['name'] }}</a>
             @endif
             @endforeach
           </div>
@@ -40,7 +40,7 @@
         </div>
       </div>
       <div class="ui inverted section divider"></div>
-      <img src="img/A1FreeGamesBlack.png" class="ui centered mini image">
+      <img src="{{ url('/') }}/img/A1FreeGamesBlack.png" class="ui centered mini image">
       <div class="ui horizontal inverted small divided link list">
         <a class="item" href="#">Site Map</a>
         <a class="item" href="#">Contact Us</a>

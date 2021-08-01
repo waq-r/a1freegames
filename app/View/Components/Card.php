@@ -8,7 +8,7 @@ class Card extends Component
 {
     public $game;
     public $gameUrl;
-    //public $categoryUrl;
+    public $categoryUrl;
     /**
      * Create a new component instance.
      *
@@ -21,7 +21,10 @@ class Card extends Component
             'category'=> $this->stringToUrl($game['category']), 
             'title'=> $this->stringToUrl($game['title']), 
             'id'=> trim($game['id'])
-        ]);    
+        ]);
+        $this->categoryUrl = route('category', [
+            'category' => $this->stringToUrl($game['category'])
+        ]); 
 
     }
 

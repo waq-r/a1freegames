@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 /**
  * 
@@ -26,11 +27,14 @@ class HomeController extends Controller
 
     		$category = [];
 	    	foreach (cache()->get('games') as $k => $v) {
-	    		$slug = strtolower($v['category']);
-	    		$slug = str_replace(' ', '-', $slug);
+	    		$slug = Str::slug($v['category'], '-');
 
 	    		if(!isset($category[$slug])){
-	    			$category[$slug] = ['name'=>$v['category'], 'slug'=>$slug, 'count'=>1];
+	    			$category[$slug] = [
+                        'name' => $v['category'],
+                        'slug' => $slug,
+                        'url' => route('category', ['category' => $slug]),
+                        'count' => 1];
 	    		}
 
 	    		$category[$slug]['count']++;

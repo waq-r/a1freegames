@@ -7,16 +7,7 @@ use Tests\TestCase;
 use App\Http\Controllers\HomeController;
 
 class HomeControllerTest extends TestCase
-{
-	/**
-	 * Description
-	 * @return void
-	 */
-    public function test_namedRouteUrl()
-    {
-    	$this->assertSame('http://a1freegames.test', route('home') );
-    }
-    
+{    
     /**
      * Description
      * @return void

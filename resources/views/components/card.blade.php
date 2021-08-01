@@ -6,7 +6,7 @@
 	  <div class="content">
 	    <a class="header" href="{{ $gameUrl }}">{{ $game['title'] }}</a>
 	    <div class="meta">
-	      <a href="{{ strtolower($game['category']) }}">{{ $game['category'] }}</a>
+	      <a href="{{ $categoryUrl }}">{{ $game['category'] }}</a>
 	    </div>
 	  </div>
 	</div>
