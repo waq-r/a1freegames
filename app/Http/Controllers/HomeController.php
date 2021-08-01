@@ -13,7 +13,7 @@ class HomeController extends Controller
 	public function display(){
 		$this->getGamepixGames();
 
-		return view('home', ['categories'=>$this->createCategoryMenu()]);
+		return view('home', ['categories'=> self::createCategoryMenu()]);
 
 	}
 /**
@@ -21,12 +21,12 @@ class HomeController extends Controller
  * Each category array contains it's name, slug and count (number of games).
  * @return Array
  */
-    public function createCategoryMenu():array 
+    public static function createCategoryMenu():array 
     {
     	return cache()->remember('categories', now()->addDays(1), function(){
 
     		$category = [];
-	    	foreach ($this->getGamepixGames() as $k => $v) {
+	    	foreach (self::getGamepixGames() as $k => $v) {
 	    		$slug = Str::slug($v['category'], '-');
 
 	    		if(!isset($category[$slug])){

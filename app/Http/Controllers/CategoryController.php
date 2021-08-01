@@ -14,13 +14,13 @@ class CategoryController extends Controller
     	$games = $this->getCategoryGames($category);
 
 
-    	return view('category', ['games'=> $games, 'categories' => cache('categories')]);
+    	return view('category', ['games'=> $games, 'categories' => HomeController::createCategoryMenu()]);
 
     }
 
     public function categoryExists($category):bool
     {
-    	return array_key_exists($category, cache('categories'));
+    	return array_key_exists($category, HomeController::createCategoryMenu());
 
     }
 
