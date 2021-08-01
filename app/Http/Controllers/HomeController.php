@@ -26,7 +26,7 @@ class HomeController extends Controller
     	return cache()->remember('categories', now()->addDays(1), function(){
 
     		$category = [];
-	    	foreach (cache()->get('games') as $k => $v) {
+	    	foreach ($this->getGamepixGames() as $k => $v) {
 	    		$slug = Str::slug($v['category'], '-');
 
 	    		if(!isset($category[$slug])){
