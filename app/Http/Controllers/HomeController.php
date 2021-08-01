@@ -50,7 +50,7 @@ class HomeController extends Controller
      * Get games data and store array in cache for a day.
      * @return Array
      */
-    public function getGamepixGames():array
+    public static function getGamepixGames():array
     {
     	$path = 'https://games.gamepix.com/games?sid=23R22';
 

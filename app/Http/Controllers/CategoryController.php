@@ -27,7 +27,7 @@ class CategoryController extends Controller
     public function getCategoryGames($category):array 
     {
     	$categoryGames = [];
-    	foreach (cache('games') as $key => $value) {
+    	foreach (HomeController::getGamepixGames() as $key => $value) {
     		if(strtolower($value['category']) === $category){
     			$categoryGames[] = $value;
     		}
