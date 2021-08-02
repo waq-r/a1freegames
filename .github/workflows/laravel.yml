@@ -85,7 +85,7 @@ jobs:
 
           script: |
 
-            cd /home/a1freega/domains/a1freegames.com/public_html
+            cd /home/a1freega/domains/a1freegames.com
 
             git checkout -f 
 
