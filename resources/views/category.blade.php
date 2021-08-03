@@ -26,7 +26,7 @@
 			  }
 			  </style>
 
-        <title>A1 Free Games</title>
+        <title>A1 Free Games | {{ $games[0]['category'] }}</title>
     </head>
     <body>
 @include('navbar')

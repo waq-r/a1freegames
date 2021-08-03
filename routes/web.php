@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\OldUrlController;
+
 
 
 /*
@@ -22,3 +24,6 @@ Route::get('/', [HomeController::class, 'display'])->name('home');
 Route::get('/{category}', [CategoryController::class, 'display'])->where('category', '[a-zA-Z]+')->name('category');
 
 Route::get('/{category}/{title}_{id}', [GameController::class, 'display'])->where(['category'=> '[a-z]+','title'=>'[a-z0-9\-]+', 'id'=>'([a-zA-Z0-9]+)$'])->name('game');
+
+//rediect to new from old url https://www.a1freegames.com/game.php?title=God%20of%20Light&id=G7625
+Route::get('/game{qs}', [OldUrlController::class, 'newUrl']);

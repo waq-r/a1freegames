@@ -26,14 +26,14 @@
 			  }
 			</style>
 
-        <title>A1 Free Games</title>
+        <title>{{ $game['title'] }} - A1 Free Games</title>
     </head>
     <body>
 @include('navbar')
 
   <div class="ui main container">
   	<div class="ui container segment">
-  		<iframe style=" resize: both; height: {{ $game['height']*1.5 }}px; width: {{ $game['width']*1.5 }}px;" src="{{ $game['url'] }}"  frameborder="1" scrolling="no"></iframe>
+  		<iframe style=" resize: both; height: {{ $game['height']*1.3 }}px; width: {{ $game['width']*1.3 }}px;" src="{{ $game['url'] }}"  frameborder="1" scrolling="no"></iframe>
   		  		
   	</div>
   	<div class="ui segment">

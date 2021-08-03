@@ -30,4 +30,17 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /**
+     * Homepage HTTP status OK 200.
+     *
+     * @return void
+     */
+    public function test_gameStatus()
+    {
+        $response = $this->get('/classics/ballmania_I79A4');
+
+        $response->assertStatus(200);
+    }
+
 }
